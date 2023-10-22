@@ -1,0 +1,15 @@
+def potega(a, n):
+    w = 1 
+    
+    while n > 0:
+        if n % 2 == 1:
+            w *= a  # Jeśli n jest nieparzyste pomnóży w przez a
+        a *= a   
+        n //= 2 # Podniesienie a do kwadratu i podzieli n przez 2
+    return w
+
+a = int(input("Podaj podstawę: "))
+n = int(input("Podaj wykładnik: "))
+
+wynik = potega(a, n)
+print(f"{a} do potęgi {n} wynosi: {wynik}") #użycie ,,f" po princie by nie musieć używać konkatenacji
