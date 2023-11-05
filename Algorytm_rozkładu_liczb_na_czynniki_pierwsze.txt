@@ -1,0 +1,28 @@
+def rozloz(n):
+    czynniki = []
+    k = 2
+    while n != 1:
+        while n % k == 0:
+            n //= k
+            czynniki.append(str(k))
+        k += 1
+
+    return czynniki
+
+if __name__ == '__main__':
+    print ('Algorytm rozkładu liczb na czynniki pierwsze\n')
+    x = ''
+    while x == '':
+        n = ''
+        while n == '':
+            n = input('\npodaj liczbę: ')
+            try:
+                n = int(n)
+                if n <= 0:
+                    n = ''
+            except:
+                n = ''
+        czynniki = rozloz(n)
+        czynniki_wynik = ' '.join(czynniki)
+        wynik = '\nCzynniki pierwsze liczby %s: %s' % (n, czynniki_wynik,)
+        print (wynik)
