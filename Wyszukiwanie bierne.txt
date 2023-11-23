@@ -1,25 +1,24 @@
-def binary_search(tablica, szukana_liczba):
-    l = 0
-    p = len(tablica) - 1
-    pozycja = -1
+def wyszukiwanie_binarne(szukana, tab):
+    l, p = 0, len(tab) - 1
 
     while l <= p:
         sr = (l + p) // 2
 
-        if tablica[sr] == szukana_liczba:
-            pozycja = sr
-            break
-        elif tablica[sr] > szukana_liczba:
+        if tab[sr] == szukana:
+            return sr
+        elif tab[sr] > szukana:
             p = sr - 1
         else:
             l = sr + 1
 
-    if pozycja != -1:
-        print(f'Liczba {szukana_liczba} występuje w tablicy na pozycji {pozycja}')
-    else:
-        print(f'Liczba {szukana_liczba} nie została znaleziona w tablicy.')
+    return -1
 
+szukana_liczba = 29
 tablica = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
-szukana_liczba = int(input("Podaj liczbę, którą chcesz znaleźć:"))
 
-binary_search(tablica, szukana_liczba)
+wynik = wyszukiwanie_binarne(szukana_liczba, tablica)
+
+if wynik != -1:
+    print(szukana_liczba, "znaleziona na pozycji", wynik)
+else:
+    print(szukana_liczba, "nie występuje w zbiorze.")
